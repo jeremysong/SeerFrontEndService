@@ -14,4 +14,13 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^$', 'seerui.views.index', name='index'),
+    url(r'^tab1/$', 'seerui.views.tab1', name='tab1'),
+    url(r'^tab2/$', 'seerui.views.tab2', name='tab2'),
+    url(r'^tab3/$', 'seerui.views.tab3', name='tab3'),
+
+    #Test 404 page
+    url(r'^404page', 'seerui.views.page_not_found_error', name='404'),
+    url(r'^500page', 'seerui.views.server_error', name='500'),
 )

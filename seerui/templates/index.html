@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to {{ webAppName }}</title>
+    <!-- bootstrap core CSS -->
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.validate.min.js"></script>
+
+    <style type="text/css">
+        .jumbotron {
+            background-color: transparent;
+        }
+
+        body {
+            padding-top: 100px;
+        }
+
+        .form-actions {
+            margin: 0;
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        .block-top-padding {
+            padding-top: 20px;
+        }
+
+        .bottom-padding {
+            padding-bottom: 100px;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Navigation bar -->
+{% include "navbar_tile.html" %}
+
+<div class="container">
+    <div class="jumbotron">
+        <h2 align="center">Add icon here</h2>
+    </div>
+
+    <!-- Query search form -->
+    <form id="queryform" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-6">
+                <input type="text" class="form-control" id="query" name="query" placeholder="Put your query here"
+                       required/>
+            </div>
+            <div class="col-lg-2">
+                <select class="form-control">
+                    <option>Option1</option>
+                    <option>Option2</option>
+                    <option>Option3</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg" id="searchBtn">Search</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <!-- File upload form -->
+    <div class="col-lg-offset-2">
+        <h3 class="text-muted">Or upload your file here:</h3>
+    </div>
+    <form id="fileform" class="form-horizontal">
+        <div class="col-lg-offset-5 block-top-padding">
+            <input type="file" id="inputFile">
+
+            <p class="text-muted block-top-padding">help text</p>
+        </div>
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary btn-lg" id="searchBtn">Upload and Search</button>
+        </div>
+    </form>
+
+    <div class="bottom-padding"></div>
+
+</div>
+
+<script>
+    $('#queryform').submit(function () {
+        if ($(this).validate()) {
+            alert("submit " + $('query').val());
+        }
+    });
+
+    $('#fileform').submit(function () {
+        if ($(this).validate()) {
+            alert("upload file");
+        }
+    })
+</script>
+
+</body>
+</html>
